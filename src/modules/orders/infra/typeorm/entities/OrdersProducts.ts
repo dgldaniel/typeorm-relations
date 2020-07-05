@@ -17,14 +17,12 @@ class OrdersProducts {
   id: string;
 
   @ManyToOne(() => Order, order => order.order_products, {
-    cascade: true,
     eager: true,
   })
   @JoinColumn({ name: 'order_id' })
   order: Order;
 
   @ManyToOne(() => Product, product => product.order_products, {
-    cascade: true,
     eager: true,
   })
   @JoinColumn({ name: 'product_id' })

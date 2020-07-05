@@ -20,6 +20,8 @@ export default class OrdersController {
       products,
     });
 
+    console.log('newOrder', newOrder);
+
     return response.json(newOrder);
   }
 }
