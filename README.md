@@ -73,8 +73,8 @@ If the container is not running, start the service:
       
 ## Install
 
-    $ git clone https://github.com/dgldaniel/gostack-template-typeorm-relations.git
-    $ cd gostack-template-typeorm-relations
+    $ git clone https://github.com/dgldaniel/typeorm-relations.git
+    $ cd typeorm-relations
     $ yarn install
       
 ## Configure app
