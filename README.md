@@ -6,11 +6,11 @@ Creation of customers, products and orders, where the customer can generate new 
 
 ## Requirements
 
-For development, you will need Node.js, a node global package, Yarn, installed in your environement.
+- For development, you will need Node.js, a node global package, Yarn, installed in your environement.
 
-Irá precisar do Docker para usar o PostgresSQL.
+- Docker to use PostgresSQL.
 
-Insomnia, para utilizar a API REST da aplicação.
+- Insomnia to use API REST.
 
 ### Node
 
@@ -41,7 +41,17 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
     $ npm install npm -g
 
-###
+### Main Tools and concepts
+
+- Typescript
+- Express.js
+- TypeORM
+- Many-to-many relationships
+- Cascade option
+- Eager loading
+- DDD architecture
+- Eslint
+- Jest
 
 ### Yarn installation
 
@@ -49,15 +59,15 @@ After installing node, this project will need yarn too, so just run the followin
 
       $ npm install -g yarn
 
-### Instalação do Postgres
+### Postgres installation
 
 ![Instalar Docker](https://docs.docker.com/)
 
-Após instalar, rode esse comando no terminal:
+After installing, run this command on the terminal:
 
       $ docker run --name <some-name> -e POSTGRES_PASSWORD=docker -p <some-port>:5432 -d postgres
       
-Se o container não estiver rodando, inicie o serviço:
+If the container is not running, start the service:
   
       $ docker start <container-name>
       
@@ -69,11 +79,11 @@ Se o container não estiver rodando, inicie o serviço:
       
 ## Configure app
 
-Crie o database "gostack_desafio09" usando algum cliente de Postgres (PostBird, Pgadmin...)
+Create "gostack_desafio09" database using some Postgres service (PostBird, Pgadmin...)
 
-Verifique se estão corretas as credenciais do banco de dados no arquivo 'ormconfig.json'.
+Check that the database credentials in the file are correct 'ormconfig.json'.
 
-Com o serviço do Postgre ligado, faça a migração com o comando:
+With the Postgre service turned on, migrate with the command:
 
     $ yarn typeorm migration:run
  
@@ -83,8 +93,53 @@ In other terminal, run:
 
     $ yarn dev:server
     
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=GoStack_Typeorm_Relations&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdgldaniel%2Fgostack-template-typeorm-relations%2Fmaster%2Fexport_typeorm_relations.json)
+
+Create a customer - http://localhost:3333/customer (POST)
+ 
+Request example:
+
+```json
+{
+	"name": "Daniel Douglas",
+	"email": "daniel@test.com"
+}
+```
+
+Create a product - http://localhost:3333/products (POST)
+
+Request example:
+
+```json
+{
+	"name": "Celular",
+	"price": 99.99,
+	"quantity": 20
+}
+```
+ 
+Create a order - http://localhost:3333/orders (POST)
+
+Request example:
+
+```json
+{
+  "customer_id": "a5bdd1a3-5f04-46a0-b282-0364d37f8222",
+  "products": [
+    {
+      "id": "052ed985-3cdb-480c-b68b-3ef2249f6073",
+      "quantity": 1
+    },
+    {
+      "id": "7df43890-d75c-4835-82f2-a1619a86692f",
+      "quantity": 1
+    }
+  ]
+}
+```
+
+Show an order - http://localhost:3333/orders/:order-id (GET)
+    
 ## Running tests
 
     $ yarn test
-
-
