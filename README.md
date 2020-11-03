@@ -61,7 +61,7 @@ After installing node, this project will need yarn too, so just run the followin
 
 ### Postgres installation
 
-[Instalar Docker](https://docs.docker.com/)
+[Install Docker](https://docs.docker.com/)
 
 After installing, run this command on the terminal:
 
