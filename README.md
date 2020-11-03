@@ -79,9 +79,9 @@ If the container is not running, start the service:
       
 ## Configure app
 
-Create "gostack_desafio09" database using some Postgres service (PostBird, Pgadmin...)
+Create "gostack_desafio09" and "gostack_desafio09_tests database using some Postgres service (PostBird, Pgadmin...)
 
-Check that the database credentials in the file are correct 'ormconfig.json'.
+Check that the database credentials in the file are correct "ormconfig.json".
 
 With the Postgre service turned on, migrate with the command:
 
@@ -95,7 +95,7 @@ In other terminal, run:
     
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=GoStack_Typeorm_Relations&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdgldaniel%2Fgostack-template-typeorm-relations%2Fmaster%2Fexport_typeorm_relations.json)
 
-Create a customer - http://localhost:3333/customer (POST)
+**Create a customer** - **`POST /customer`**
  
 Request example:
 
@@ -106,7 +106,7 @@ Request example:
 }
 ```
 
-Create a product - http://localhost:3333/products (POST)
+**Create a product** - **`POST /products`**
 
 Request example:
 
@@ -118,7 +118,7 @@ Request example:
 }
 ```
  
-Create a order - http://localhost:3333/orders (POST)
+**Create a order** - **`POST /orders`**
 
 Request example:
 
@@ -138,8 +138,12 @@ Request example:
 }
 ```
 
-Show an order - http://localhost:3333/orders/:order-id (GET)
+**Show an order** - **`GET /orders/:id`**
     
 ## Running tests
+
+Select "gostack_desafio09_tests" on "ormconfig.json" and run migrations:
+
+    $ yarn typeorm migration:run
 
     $ yarn test
